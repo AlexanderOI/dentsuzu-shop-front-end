@@ -1,13 +1,12 @@
-import type { Products, JsonProducts } from '../types.d.ts';
+import type { Products } from '../types.d.ts';
 import { useRef, useState } from 'react';
-import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ConteinerButton, ButtonAmounts, ButtonBuy } from '../style/ProductsStyle.ts';
+import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonAmounts, ButtonBuy } from '../style/ProductsStyle.ts';
 
-export function RenderProducts({ sectionProduct }: JsonProducts) {
+export function RenderProducts({ products }: Products) {
 
-  const productsList: Products[] = sectionProduct.Almacén['Aderezos/Condimentos'];
 
   const [amounts, setAmounts] = useState<{ [productId: number]: number }>(
-    productsList.reduce((acc, product) => {
+    products.reduce((acc, product) => {
       acc[product.productId] = 0
       return acc;
     }, {} as { [productId: number]: number })
@@ -44,6 +43,7 @@ export function RenderProducts({ sectionProduct }: JsonProducts) {
   }
 
   const handleClickBuy = (productId: number) => {
+
     setAmounts((prevAmounts) => {
       return {
         ...prevAmounts,
@@ -55,13 +55,14 @@ export function RenderProducts({ sectionProduct }: JsonProducts) {
   return (
     <Main>
       <ProductsListUl>
-        {productsList.slice(0, 25).map((product) => (
+        {products.slice(0, 25).map((product) => (
           <ProductsListli key={product.productId}>
-            <Img src={product.img} alt={product.alt} />
-            <ProductTitle>{product.product}</ProductTitle>
-            <ProductPrice>{product.price}</ProductPrice>
-            <span>{product.productId}</span>
-            <ConteinerButton>
+            <ContainerInfo>
+              <Img src={product.img} alt={product.alt} />
+              <ProductPrice>Gs. {product.price}</ProductPrice>
+              <ProductTitle>{product.product}</ProductTitle>
+            </ContainerInfo>
+            <ContainerButton>
               <ButtonAmounts
                 onClick={() => handleClickAmount(product.productId, -1, product.stock)}
                 onMouseDown={() => handleMouseDownAmount(product.productId, -1, product.stock)}
@@ -79,7 +80,7 @@ export function RenderProducts({ sectionProduct }: JsonProducts) {
               </ButtonAmounts>
               <ButtonBuy onClick={() => handleClickBuy(product.productId)}>Al carro</ButtonBuy>
 
-            </ConteinerButton>
+            </ContainerButton>
           </ProductsListli>
         ))}
       </ProductsListUl>

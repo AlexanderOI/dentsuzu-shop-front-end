@@ -36,6 +36,11 @@ export interface Almacén {
 }
 
 export interface Products {
+  products: ProductsList[];
+}
+
+
+export interface ProductsList {
   productId: number;
   category: string;
   product: string;
