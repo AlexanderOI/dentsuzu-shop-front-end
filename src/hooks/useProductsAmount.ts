@@ -1,5 +1,6 @@
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { ProductsList } from "../types"
+import { ShoppingCartContext } from "../context/ShoppingCartProvider"
 
 export function useProductsAmount(products: ProductsList[]) {
   const [amount, setAmounts] = useState<{ [productId: number]: number }>(
@@ -8,8 +9,10 @@ export function useProductsAmount(products: ProductsList[]) {
       return acc
     }, {} as { [productId: number]: number })
   )
-  console.log(amount)
+
   const timerIdRef = useRef<number>(0)
+
+  const { setProductsCart } = useContext(ShoppingCartContext)
 
   const handleClickAmount = (productId: number, sum: number, stock: number) => {
     setAmounts((prevAmounts) => {
@@ -35,6 +38,9 @@ export function useProductsAmount(products: ProductsList[]) {
   }
 
   const handleClickBuy = (productId: number) => {
+    const newProducts = products.filter(product => amount[product.productId] !== 0)
+    setProductsCart((prevProductsCart) => [...prevProductsCart, ...newProducts])
+
     setAmounts((prevAmounts) => {
       return {
         ...prevAmounts,

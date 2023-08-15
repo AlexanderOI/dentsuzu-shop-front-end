@@ -5,8 +5,10 @@ import { ProductsList } from './types'
 import { useProductsFilters } from './hooks/useProductsFilters.ts'
 import { ShoppingCart } from './components/ShoppingCart'
 import { useState } from 'react'
+import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
 
 function App() {
+
   const { filters, selectValue, handleChangeSelectFilterPrice } = useProductsFilters('Position')
   const [isVisible, setIsVisible] = useState(false)
 
@@ -38,20 +40,21 @@ function App() {
           <button onClick={handleClickIsVisible}>Ver Carrito</button>
         </DivCarrito>
       </Header>
+      <ShoppingCartProvider>
+        <ShoppingCart isVisible={isVisible} />
 
-      <ShoppingCart products={productsRender} isVisible={isVisible} />
+        <DivFilters>
+          <input type="text" placeholder="Buscar producto" />
+          <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
+            <option value="position">Posición</option>
+            <option value="name">Nombre</option>
+            <option value="higher">Precio mayor a menor</option>
+            <option value="lower">Precio menor a mayor</option>
+          </select>
+        </DivFilters>
 
-      <DivFilters>
-        <input type="text" placeholder="Buscar producto" />
-        <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
-          <option value="position">Posición</option>
-          <option value="name">Nombre</option>
-          <option value="higher">Precio mayor a menor</option>
-          <option value="lower">Precio menor a mayor</option>
-        </select>
-      </DivFilters>
-
-      <Products products={productsRender} />
+        <Products products={productsRender} />
+      </ShoppingCartProvider>
     </>
   )
 }
