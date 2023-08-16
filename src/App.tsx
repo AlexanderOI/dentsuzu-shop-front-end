@@ -1,4 +1,4 @@
-import { Header, DivCarrito, DivFilters } from './AppStyle.ts'
+import { Header, DivCarrito, DivFilters, DivProducts, DivSection } from './AppStyle.ts'
 import { sectionProducts } from './json/products.ts'
 import { Products } from './components/Products'
 import { ProductsList } from './types'
@@ -6,6 +6,7 @@ import { useProductsFilters } from './hooks/useProductsFilters.ts'
 import { ShoppingCart } from './components/ShoppingCart'
 import { useState } from 'react'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
+import { Filters } from './components/Filters.tsx'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <button onClick={handleClickIsVisible}>Ver Carrito</button>
         </DivCarrito>
       </Header>
+
       <ShoppingCartProvider>
         <ShoppingCart isVisible={isVisible} />
 
@@ -53,7 +55,14 @@ function App() {
           </select>
         </DivFilters>
 
-        <Products products={productsRender} />
+        <DivProducts>
+          <DivSection>
+            <Filters></Filters>
+
+            <Products products={productsRender} />
+          </DivSection>
+        </DivProducts>
+
       </ShoppingCartProvider>
     </>
   )
