@@ -27,6 +27,21 @@ export const ContainerInfo = styled.div`
 display: inline-block;
 height: 90%;
 `
+export const DivConteinerImg = styled.div`
+display: flex;
+position: relative;
+justify-content: center;
+justify-items: center;
+align-items: center;
+padding-bottom: 5px;
+`
+
+export const SpanStock = styled.span`
+position: absolute;
+background-color: rgba(255, 255, 255, 0.5);
+color: #ff0000;
+padding:5px 45px 5px 45px;
+`
 
 export const Img = styled.img`
 background-color: #3d3d3d;

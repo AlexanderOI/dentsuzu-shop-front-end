@@ -1,11 +1,6 @@
 import { styled } from 'styled-components';
 
-interface ViewCartProps {
-  isVisible: boolean;
-}
-
-export const ViewCart = styled.div<ViewCartProps>`
-display: ${props => (props.isVisible ? 'block' : 'none')};
+export const ViewCart = styled.div`
 position: fixed;
 top: 50%;
 left: 50%;
