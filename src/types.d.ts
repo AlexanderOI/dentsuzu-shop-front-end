@@ -13,7 +13,7 @@ export interface ProductsSection {
   Electrodomésticos: Electrodomésticos;
   Farmacia: Farmacia;
   "Fiambres y Quesos": FiambresYQuesos;
-  "Frutas/ Verduras/Huevos": FrutasVerdurasHuevos;
+  "Frutas/Verduras/Huevos": FrutasVerdurasHuevos;
   Juguetería: Juguetería;
   Lácteos: Lácteos;
   Librería: Librería;
@@ -25,14 +25,14 @@ export interface ProductsSection {
 }
 
 export interface Almacén {
-  "Aderezos/Condimentos": Products[];
-  "Alimentos Secos": Products[];
-  Celiacos: Products[];
-  "Dietéticos/BC": Products[];
-  Enlatados: Products[];
-  Golosinas: Products[];
-  "Café/Té/Yerba": Products[];
-  Snacks: Products[];
+  "Aderezos/Condimentos": ProductsList[];
+  "Alimentos Secos": ProductsList[];
+  Celiacos: ProductsList[];
+  "Dietéticos/BC": ProductsList[];
+  Enlatados: ProductsList[];
+  Golosinas: ProductsList[];
+  "Café/Té/Yerba": ProductsList[];
+  Snacks: ProductsList[];
 }
 
 export interface Products {
@@ -51,131 +51,131 @@ export interface ProductsList {
 }
 
 export interface Bazar {
-  "Aire Libre": Products[];
-  Cocina: Products[];
-  Cotillón: Products[];
-  "Decoración/Regalos": Products[];
-  "Organizadores del Hogar": Products[];
-  Vajillas: Products[];
+  "Aire Libre": ProductsList[];
+  Cocina: ProductsList[];
+  Cotillón: ProductsList[];
+  "Decoración/Regalos": ProductsList[];
+  "Organizadores del Hogar": ProductsList[];
+  Vajillas: ProductsList[];
 }
 
 export interface Bebes {
-  Accesorios: Products[];
-  Alimentos: Products[];
-  Perfumería: Products[];
+  Accesorios: ProductsList[];
+  Alimentos: ProductsList[];
+  Perfumería: ProductsList[];
 }
 
 export interface BebidasSinAlcohol {
-  Aguas: Products[];
-  Especiales: Products[];
-  Gaseosas: Products[];
-  Jugos: Products[];
+  Aguas: ProductsList[];
+  Especiales: ProductsList[];
+  Gaseosas: ProductsList[];
+  Jugos: ProductsList[];
 }
 
 export interface BebidasConAlcohol {
-  Aperitivos: Products[];
-  "Bebidas Blancas": Products[];
-  Cervezas: Products[];
-  Espumantes: Products[];
-  Licores: Products[];
-  Vinos: Products[];
-  Whiskies: Products[];
+  Aperitivos: ProductsList[];
+  "Bebidas Blancas": ProductsList[];
+  Cervezas: ProductsList[];
+  Espumantes: ProductsList[];
+  Licores: ProductsList[];
+  Vinos: ProductsList[];
+  Whiskies: ProductsList[];
 }
 
 export interface Carnes {
-  "Carne de Aves": Products[];
-  "Carne Porcina": Products[];
-  "Carne Vacuna/Otros": Products[];
+  "Carne de Aves": ProductsList[];
+  "Carne Porcina": ProductsList[];
+  "Carne Vacuna/Otros": ProductsList[];
 }
 
 export interface Congelados {
-  "Comidas Preparadas": Products[];
-  "Frutas/Verduras": Products[];
-  Hamburguesas: Products[];
-  "Pescados/Mariscos": Products[];
-  Carnes: Products[];
+  "Comidas Preparadas": ProductsList[];
+  "Frutas/Verduras": ProductsList[];
+  Hamburguesas: ProductsList[];
+  "Pescados/Mariscos": ProductsList[];
+  Carnes: ProductsList[];
 }
 
 export interface Electrodomésticos {
-  "Línea Blanca": Products[];
-  Otros: Products[];
+  "Línea Blanca": ProductsList[];
+  Otros: ProductsList[];
 }
 
 export interface Farmacia {
-  Botiquin: Products[];
+  Botiquin: ProductsList[];
 }
 
 export interface FiambresYQuesos {
-  Embutidos: Products[];
-  Fiambres: Products[];
-  Otros: Products[];
-  Queseria: Products[];
+  Embutidos: ProductsList[];
+  Fiambres: ProductsList[];
+  Otros: ProductsList[];
+  Queseria: ProductsList[];
 }
 
 export interface FrutasVerdurasHuevos {
-  Frutas: Products[];
-  Verduras: Products[];
-  Huevos: Products[];
+  Frutas: ProductsList[];
+  Verduras: ProductsList[];
+  Huevos: ProductsList[];
 }
 
 export interface Juguetería {
-  Juguetes: Products[];
-  Otros: Products[];
+  Juguetes: ProductsList[];
+  Otros: ProductsList[];
 }
 
 export interface Librería {
-  "Archivos/Carpetas": Products[];
-  "Básicos de Oficina": Products[];
-  "Elem. de Escritura": Products[];
-  Escolar: Products[];
-  "Otros Artículos": Products[];
+  "Archivos/Carpetas": ProductsList[];
+  "Básicos de Oficina": ProductsList[];
+  "Elem. de Escritura": ProductsList[];
+  Escolar: ProductsList[];
+  "Otros Artículos": ProductsList[];
 }
 
 export interface Limpieza {
-  Accesorios: Products[];
-  Hogar: Products[];
-  Ropa: Products[];
+  Accesorios: ProductsList[];
+  Hogar: ProductsList[];
+  Ropa: ProductsList[];
 }
 
 export interface Lácteos {
-  "Bebidas Lácteas": Products[];
-  Cremas: Products[];
-  Leches: Products[];
-  Chocolatada: Products[];
-  "Manteca / Margarina": Products[];
-  Postres: Products[];
-  Yogures: Products[];
+  "Bebidas Lácteas": ProductsList[];
+  Cremas: ProductsList[];
+  Leches: ProductsList[];
+  Chocolatada: ProductsList[];
+  "Manteca / Margarina": ProductsList[];
+  Postres: ProductsList[];
+  Yogures: ProductsList[];
 }
 
 export interface MascotasYHogar {
-  "Carbón/Encend.": Products[];
-  Ferretería: Products[];
-  "Iluminacion/Electricidad": Products[];
-  "Jardinería/Piscina": Products[];
-  Pintureria: Products[];
-  Rodados: Products[];
-  Veterinaria: Products[];
+  "Carbón/Encend.": ProductsList[];
+  Ferretería: ProductsList[];
+  "Iluminacion/Electricidad": ProductsList[];
+  "Jardinería/Piscina": ProductsList[];
+  Pintureria: ProductsList[];
+  Rodados: ProductsList[];
+  Veterinaria: ProductsList[];
 }
 
 export interface Panaderia {
-  Confiteria: Products[];
-  "Panificados a Granel": Products[];
-  "Panificados Envasados": Products[];
+  Confiteria: ProductsList[];
+  "Panificados a Granel": ProductsList[];
+  "Panificados Envasados": ProductsList[];
 }
 
 export interface PastasFrescas {
-  Tapas: Products[];
-  "Con y Sin Relleno": Products[];
+  Tapas: ProductsList[];
+  "Con y Sin Relleno": ProductsList[];
 }
 
 export interface Perfumeria {
-  "Cuidado Capilar": Products[];
-  "Cuidado de la Piel": Products[];
-  "Cuidado Masculino": Products[];
-  "Cuidado Personal": Products[];
-  Desodorantes: Products[];
-  "Higiene Bucal": Products[];
-  "Perfumes y Colonias": Products[];
-  "Protección Femenina": Products[];
-  "Rostro/Manos/Pies": Products[];
+  "Cuidado Capilar": ProductsList[];
+  "Cuidado de la Piel": ProductsList[];
+  "Cuidado Masculino": ProductsList[];
+  "Cuidado Personal": ProductsList[];
+  Desodorantes: ProductsList[];
+  "Higiene Bucal": ProductsList[];
+  "Perfumes y Colonias": ProductsList[];
+  "Protección Femenina": ProductsList[];
+  "Rostro/Manos/Pies": ProductsList[];
 }

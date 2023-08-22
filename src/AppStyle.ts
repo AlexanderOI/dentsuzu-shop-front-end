@@ -26,12 +26,20 @@ export const DivFilters = styled.div`
   top: 100px;
   width: 100%;
   height: 50px;
-  justify-content: space-between;
   background-color: #aaa;
-  align-items:center;
+  align-items: center;
+  justify-content: center;
   padding-left: 50px;
   padding-right: 50px;
 `
+
+export const DivFiltersContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+`
+
 export const DivProducts = styled.div`
   display: grid;
   place-items: center;

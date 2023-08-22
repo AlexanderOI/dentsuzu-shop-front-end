@@ -1,4 +1,4 @@
-import { Header, DivCarrito, DivFilters, DivProducts, DivSection } from './AppStyle.ts'
+import { Header, DivCarrito, DivFilters, DivFiltersContainer, DivProducts, DivSection } from './AppStyle.ts'
 import { sectionProducts } from './json/products.ts'
 import { Products } from './components/Products'
 import { ProductsList } from './types'
@@ -46,18 +46,20 @@ function App() {
         <ShoppingCart isVisible={isVisible} />
 
         <DivFilters>
-          <input type="text" placeholder="Buscar producto" />
-          <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
-            <option value="position">Posición</option>
-            <option value="name">Nombre</option>
-            <option value="higher">Precio mayor a menor</option>
-            <option value="lower">Precio menor a mayor</option>
-          </select>
+          <DivFiltersContainer>
+            <input type="text" placeholder="Buscar producto" />
+            <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
+              <option value="position">Posición</option>
+              <option value="name">Nombre</option>
+              <option value="higher">Precio mayor a menor</option>
+              <option value="lower">Precio menor a mayor</option>
+            </select>
+          </DivFiltersContainer>
         </DivFilters>
 
         <DivProducts>
           <DivSection>
-            <Filters></Filters>
+            <Filters />
 
             <Products products={productsRender} />
           </DivSection>
