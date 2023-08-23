@@ -1,11 +1,15 @@
-import { ReactNode, createContext, useState } from "react";
-import { ProductsList } from "../types";
+import { ReactNode, createContext, useContext, useState } from "react"
+import { ProductsList } from "../types"
+
+type AmountType = {
+  [key: number]: number
+};
 
 type ShoppingCartContextType = {
-  productsCart: ProductsList[];
-  amountCart: AmountType;
-  setProductsCart: React.Dispatch<React.SetStateAction<ProductsList[]>>;
-  setAmountCart: React.Dispatch<React.SetStateAction<AmountType>>;
+  productsCart: ProductsList[]
+  amountCart: AmountType
+  setProductsCart: React.Dispatch<React.SetStateAction<ProductsList[]>>
+  setAmountCart: React.Dispatch<React.SetStateAction<AmountType>>
 };
 
 const initialShoppingCartContext: ShoppingCartContextType = {
@@ -15,19 +19,11 @@ const initialShoppingCartContext: ShoppingCartContextType = {
   setAmountCart: () => { },
 };
 
-export const ShoppingCartContext = createContext<ShoppingCartContextType>(
+const ShoppingCartContext = createContext<ShoppingCartContextType>(
   initialShoppingCartContext
 );
 
-type ShoppingCartProviderProps = {
-  children: ReactNode;
-};
-
-type AmountType = {
-  [key: number]: number;
-};
-
-export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+export function ShoppingCartProvider({ children }: { children: ReactNode }) {
   const [productsCart, setProductsCart] = useState(
     initialShoppingCartContext.productsCart
   );
@@ -42,4 +38,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       {children}
     </ShoppingCartContext.Provider>
   );
+}
+
+export function useShoppingCartContext() {
+  return useContext(ShoppingCartContext)
 }

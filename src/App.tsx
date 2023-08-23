@@ -1,17 +1,25 @@
-import { Header, DivCarrito, DivFilters, DivFiltersContainer, DivProducts, DivSection } from './AppStyle.ts'
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { Header, DivCarrito, DivProducts, DivSection } from './AppStyle.ts'
 import { sectionProducts } from './json/products.ts'
 import { Products } from './components/Products'
 import { ProductsList } from './types'
 import { useProductsFilters } from './hooks/useProductsFilters.ts'
 import { ShoppingCart } from './components/ShoppingCart'
-import { useState } from 'react'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
+import { SelectProducts } from './components/SelectProducts.tsx'
+import { ProductsProvider } from './context/ProductsProvider.tsx'
 import { Filters } from './components/Filters.tsx'
 
 function App() {
 
   const { filters, selectValue, handleChangeSelectFilterPrice } = useProductsFilters('Position')
   const [isVisible, setIsVisible] = useState(false)
+
+  const handleClickIsVisible = () => {
+    setIsVisible(!isVisible)
+  }
 
   const orderProducts = (products: ProductsList[]): ProductsList[] => {
     if (filters.order === 'position') return products
@@ -29,10 +37,6 @@ function App() {
 
   const productsRender = orderProducts(sectionProducts.Almacén['Aderezos/Condimentos'])
 
-  const handleClickIsVisible = () => {
-    setIsVisible(!isVisible)
-  }
-
   return (
     <>
       <Header>
@@ -44,26 +48,25 @@ function App() {
 
       <ShoppingCartProvider>
         <ShoppingCart isVisible={isVisible} />
+        <ProductsProvider>
 
-        <DivFilters>
-          <DivFiltersContainer>
-            <input type="text" placeholder="Buscar producto" />
-            <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
-              <option value="position">Posición</option>
-              <option value="name">Nombre</option>
-              <option value="higher">Precio mayor a menor</option>
-              <option value="lower">Precio menor a mayor</option>
-            </select>
-          </DivFiltersContainer>
-        </DivFilters>
+          <Filters selectValue={selectValue} onChangeSelect={handleChangeSelectFilterPrice} />
 
-        <DivProducts>
-          <DivSection>
-            <Filters />
+          <DivProducts>
+            <DivSection>
+              <BrowserRouter>
+                <SelectProducts />
+                <Routes>
+                  <Route path='/' element={<Products products={productsRender} />} />
+                  <Route path='/products/:category/:page' element={<Products products={productsRender} />} />
+                  <Route path='/products/:category' element={<Products products={productsRender} />} />
+                  <Route path='/products' element={<Products products={productsRender} />} />
+                </Routes>
 
-            <Products products={productsRender} />
-          </DivSection>
-        </DivProducts>
+              </BrowserRouter>
+            </DivSection>
+          </DivProducts>
+        </ProductsProvider>
 
       </ShoppingCartProvider>
     </>

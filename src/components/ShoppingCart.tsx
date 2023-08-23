@@ -1,16 +1,13 @@
-import { useContext } from 'react';
 import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../style/ShoppingCartStyle';
-import { ShoppingCartContext } from '../context/ShoppingCartProvider';
+import { useShoppingCartContext } from '../context/ShoppingCartProvider';
 import { useProductsAmountCart } from '../hooks/useProductsAmounCart';
-
-
 
 interface ShoppingCartProps {
   isVisible: boolean
 }
 
 export function ShoppingCart({ isVisible }: ShoppingCartProps) {
-  const { productsCart, amountCart } = useContext(ShoppingCartContext)
+  const { productsCart, amountCart } = useShoppingCartContext()
   const { handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuyCancel } = useProductsAmountCart()
 
   const totalPrice: number = productsCart.reduce((accumulatorPrice, currenProduct) => {

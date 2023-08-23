@@ -1,6 +1,6 @@
-import { useContext, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { ProductsList } from "../types"
-import { ShoppingCartContext } from "../context/ShoppingCartProvider"
+import { useShoppingCartContext } from "../context/ShoppingCartProvider"
 
 export const useProductsAmount = (products: ProductsList[]) => {
   const [amount, setAmounts] = useState<{ [productId: number]: number }>(
@@ -12,7 +12,7 @@ export const useProductsAmount = (products: ProductsList[]) => {
 
   const timerIdRef = useRef<number>(0)
 
-  const { productsCart, amountCart, setProductsCart, setAmountCart } = useContext(ShoppingCartContext)
+  const { productsCart, amountCart, setProductsCart, setAmountCart } = useShoppingCartContext()
 
   const handleClickAmount = (productId: number, sum: number, stock: number) => {
     setAmounts((prevAmounts) => {

@@ -1,54 +1,25 @@
-import { SectionFilters } from "../style/FiltersStyle";
-import { types, TypesKey } from "../constants/types";
-import { sections } from "../constants/section";
-import { styled } from "styled-components";
-import { useState } from "react";
+import { ChangeEvent } from "react";
+import { DivFilters, DivFiltersContainer } from "../AppStyle";
 
-const UlFilters = styled.ul`
-padding: 15px 0px 0px 25px;
-`
-const LiFilters = styled.li`
-list-style: none;
-`
-const A = styled.a`
-text-decoration: none;
-color: #fff;
-`
+type onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => void;
 
-type CategoryType = {
-  section: TypesKey;
-};
-
-function Types({ section }: CategoryType) {
-  const [isVisiblesCategories, setIsVisiblesCategories] = useState(false)
-  const sectionTypes = types[section]
-
-  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    event.preventDefault()
-
-  }
-
-  return (
-    <UlFilters>
-      <h5>{section}</h5>
-      {sectionTypes.map((type) => (
-        <LiFilters key={type}>
-          <A href="" onClick={handleLinkClick}>
-            {type}
-          </A>
-        </LiFilters>
-      ))}
-    </UlFilters>
-  );
+type FiltersProps = {
+  selectValue: string;
+  onChangeSelect: onChangeSelect
 }
 
-export function Filters() {
-
+export function Filters({ selectValue, onChangeSelect }: FiltersProps) {
   return (
-    <SectionFilters>
-      {sections.map((section) => (
-        <Types key={section} section={section as TypesKey} />
-      ))}
-    </SectionFilters>
-  );
+    <DivFilters>
+      <DivFiltersContainer>
+        <input type="text" placeholder="Buscar producto" />
+        <select value={selectValue} onChange={onChangeSelect}>
+          <option value="position">Posición</option>
+          <option value="name">Nombre</option>
+          <option value="higher">Precio mayor a menor</option>
+          <option value="lower">Precio menor a mayor</option>
+        </select>
+      </DivFiltersContainer>
+    </DivFilters>
+  )
 }

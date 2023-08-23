@@ -1,9 +1,9 @@
-import { useRef, useContext } from "react"
-import { ShoppingCartContext } from "../context/ShoppingCartProvider"
+import { useRef } from "react"
+import { useShoppingCartContext } from "../context/ShoppingCartProvider"
 
 
 export const useProductsAmountCart = () => {
-  const { setProductsCart, setAmountCart } = useContext(ShoppingCartContext)
+  const { setProductsCart, setAmountCart } = useShoppingCartContext()
   const timerIdRef = useRef<number>(0)
 
   const handleClickAmount = (productId: number, sum: number, stock: number) => {
