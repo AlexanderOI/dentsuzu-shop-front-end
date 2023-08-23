@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components'
 
 export const Main = styled.main`
@@ -5,14 +6,28 @@ export const Main = styled.main`
   width: 80%;
   height: 100%;
   padding: 10px;
-`;
+`
+
+export const NavLinkStyled = styled(NavLink)`
+  display: inline-block;
+  background: #707bd6;
+  text-decoration: none;
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  margin: 3px;
+  border: 1px solid #707bd6;
+`
 
 export const ProductsListUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   list-style: none;
-`;
+`
 
 export const ProductsListli = styled.li`
   display: flex;
@@ -21,7 +36,7 @@ export const ProductsListli = styled.li`
   background-color: #cfcecf;
   padding: 20px;
   font-weight: 300;
-`;
+`
 
 export const ContainerInfo = styled.div`
   display: inline-block;
@@ -47,7 +62,7 @@ export const Img = styled.img`
   background-color: #3d3d3d;
   width: 100%;
   height: 150px;
-`;
+`
 
 export const ProductTitle = styled.strong`
   display: block;
@@ -55,12 +70,12 @@ export const ProductTitle = styled.strong`
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
-`;
+`
 
 export const ProductPrice = styled.span`
   margin-top: 5px;
   font-weight: bold;
-`;
+`
 
 export const ContainerButton = styled.div`
   display: flex;

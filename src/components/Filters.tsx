@@ -1,23 +1,23 @@
-import { ChangeEvent } from "react";
 import { DivFilters, DivFiltersContainer } from "../AppStyle";
+import { useProductsFilters } from "../hooks/useProductsFilters";
+import { ORDER_OPTIONS } from "../constants/order";
 
-type onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => void;
+export function Filters() {
+  const { selectValue, handleChangeSelectFilterPrice } = useProductsFilters('position')
 
-type FiltersProps = {
-  selectValue: string;
-  onChangeSelect: onChangeSelect
-}
-
-export function Filters({ selectValue, onChangeSelect }: FiltersProps) {
   return (
     <DivFilters>
       <DivFiltersContainer>
         <input type="text" placeholder="Buscar producto" />
-        <select value={selectValue} onChange={onChangeSelect}>
-          <option value="position">Posición</option>
-          <option value="name">Nombre</option>
-          <option value="higher">Precio mayor a menor</option>
-          <option value="lower">Precio menor a mayor</option>
+
+        <select value={selectValue} onChange={handleChangeSelectFilterPrice}>
+          {ORDER_OPTIONS.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))
+
+          }
         </select>
       </DivFiltersContainer>
     </DivFilters>

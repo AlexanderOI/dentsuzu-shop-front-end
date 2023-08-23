@@ -1,24 +1,12 @@
 import type { Products } from '../types.d.ts'
 import { useProductsAmount } from '../hooks/useProductsAmount.ts';
-import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonAmounts, ButtonBuy } from '../style/ProductsStyle.ts';
-import { NavLink, useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonAmounts, ButtonBuy, NavLinkStyled } from '../style/ProductsStyle.ts';
+import { useParams } from 'react-router-dom';
+import { useProductContext } from '../context/ProductsProvider.tsx';
 
-const NavLinkStyled = styled(NavLink)`
-display: inline-block;
-background: #707bd6;
-text-decoration: none;
-text-align: center;
-align-content: center;
-vertical-align: middle;
-width: 20px;
-height: 20px;
-color: #fff;
-margin: 3px;
-border: 1px solid #707bd6;
-`
 
-export function Products({ products }: Products) {
+export function Products() {
+  const { products } = useProductContext()
   const { amount, handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuy } = useProductsAmount(products)
 
   const { category, page } = useParams()

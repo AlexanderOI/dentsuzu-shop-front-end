@@ -1,20 +1,7 @@
-import { SectionFilters } from "../style/FiltersStyle";
+import { LiFilters, NavLinkStyled, SectionFilters, UlFilters } from "../style/SelectProductsStyle";
 import { types, TypesKey } from "../constants/types";
 import { sections } from "../constants/section";
-import { styled } from "styled-components";
 
-import { NavLink } from "react-router-dom";
-
-const UlFilters = styled.ul`
-padding: 15px 0px 0px 25px;
-`
-const LiFilters = styled.li`
-list-style: none;
-`
-const NavLinkStyled = styled(NavLink)`
-text-decoration: none;
-color: #fff;
-`
 
 function Types({ section }: { section: TypesKey }) {
   const sectionTypes = types[section]
