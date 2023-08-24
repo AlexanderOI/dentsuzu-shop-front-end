@@ -47,6 +47,7 @@ export interface ProductsList {
   alt: string;
   price: number;
   stock: number;
+  quantity: number;
   img: string;
 }
 

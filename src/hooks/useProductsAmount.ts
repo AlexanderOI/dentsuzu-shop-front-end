@@ -1,8 +1,9 @@
 import { useRef, useState } from "react"
-import { ProductsList } from "../types"
 import { useShoppingCartContext } from "../context/ShoppingCartProvider"
+import { useProductContext } from "../context/ProductsProvider"
 
-export const useProductsAmount = (products: ProductsList[]) => {
+export const useProductsAmount = () => {
+  const { products, setProducts } = useProductContext()
   const [amount, setAmounts] = useState<{ [productId: number]: number }>(
     products.reduce((acc, product) => {
       acc[product.productId] = 0

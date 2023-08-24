@@ -7,7 +7,7 @@ import { useProductContext } from '../context/ProductsProvider.tsx';
 
 export function Products() {
   const { products } = useProductContext()
-  const { amount, handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuy } = useProductsAmount(products)
+  const { handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuy } = useProductsAmount()
 
   const { category, page } = useParams()
 
@@ -15,13 +15,15 @@ export function Products() {
   const intPage = page ? parseInt(page) : 1
   const startIndex = (intPage - 1) * productsPerPage
   const endIndex = startIndex + productsPerPage
-  console.log(category, page)
+
+  const lenProducts = products.length
+  const renderProducts = products.slice(startIndex, endIndex)
 
 
   return (
     <Main>
       {Array.from(
-        { length: Math.ceil(products.length / productsPerPage) },
+        { length: Math.ceil(lenProducts / productsPerPage) },
         (_, index) => (
           <NavLinkStyled
             key={index + 1}
@@ -30,10 +32,10 @@ export function Products() {
             {index + 1}
           </NavLinkStyled>
         )
-      )};
+      )}
 
       <ProductsListUl>
-        {products.slice(startIndex, endIndex).map((product) => (
+        {renderProducts.map((product) => (
           <ProductsListli key={product.productId}>
             <ContainerInfo>
               <Img src={product.img} alt={product.alt} />
@@ -50,7 +52,7 @@ export function Products() {
                 {'<'}
               </ButtonAmounts>
 
-              <span>{amount[product.productId]}</span>
+              <span>{product.quantity}</span>
 
               <ButtonAmounts
                 onClick={() => handleClickAmount(product.productId, 1, product.stock)}
