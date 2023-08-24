@@ -84,7 +84,7 @@ export const ContainerButton = styled.div`
   justify-content: space-between;
 `
 
-export const ButtonAmounts = styled.button`
+export const ButtonQuantity = styled.button`
   cursor: pointer;
   width: 25px;
   height: 35px;

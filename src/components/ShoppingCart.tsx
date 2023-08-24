@@ -1,17 +1,17 @@
 import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../style/ShoppingCartStyle';
 import { useShoppingCartContext } from '../context/ShoppingCartProvider';
-import { useProductsAmountCart } from '../hooks/useProductsAmounCart';
+import { useProductsQuantityCart } from '../hooks/useProductsQuantityCart';
 
 interface ShoppingCartProps {
   isVisible: boolean
 }
 
 export function ShoppingCart({ isVisible }: ShoppingCartProps) {
-  const { productsCart, amountCart } = useShoppingCartContext()
-  const { handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuyCancel } = useProductsAmountCart()
+  const { productsCart } = useShoppingCartContext()
+  const { handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuyCancel } = useProductsQuantityCart()
 
   const totalPrice: number = productsCart.reduce((accumulatorPrice, currenProduct) => {
-    return accumulatorPrice + currenProduct.price * amountCart[currenProduct.productId]
+    return accumulatorPrice + currenProduct.price * currenProduct.quantity
   }, 0)
 
   return (
@@ -25,22 +25,22 @@ export function ShoppingCart({ isVisible }: ShoppingCartProps) {
 
               <DivInfo>
                 <SpanName>{product.product}</SpanName>
-                <SpanPrice>{product.price * amountCart[product.productId]}</SpanPrice>
+                <SpanPrice>{product.price * product.quantity}</SpanPrice>
               </DivInfo>
 
               <DivButton>
                 <Button
-                  onClick={() => handleClickAmount(product.productId, -1, product.stock)}
-                  onMouseDown={() => handleMouseDownAmount(product.productId, -1, product.stock)}
-                  onMouseUp={handleMouseUpAmount}
+                  onClick={() => handleClickQuantity(product.productId, -1, product.stock)}
+                  onMouseDown={() => handleMouseDownQuantity(product.productId, -1, product.stock)}
+                  onMouseUp={handleMouseUpQuantity}
                 >
                   {'<'}
                 </Button>
-                <span>{amountCart[product.productId]}</span>
+                <span>{product.quantity}</span>
                 <Button
-                  onClick={() => handleClickAmount(product.productId, 1, product.stock)}
-                  onMouseDown={() => handleMouseDownAmount(product.productId, 1, product.stock)}
-                  onMouseUp={handleMouseUpAmount}
+                  onClick={() => handleClickQuantity(product.productId, 1, product.stock)}
+                  onMouseDown={() => handleMouseDownQuantity(product.productId, 1, product.stock)}
+                  onMouseUp={handleMouseUpQuantity}
                 >
                   {'>'}
                 </Button>

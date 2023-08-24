@@ -1,13 +1,13 @@
 import type { Products } from '../types.d.ts'
-import { useProductsAmount } from '../hooks/useProductsAmount.ts';
-import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonAmounts, ButtonBuy, NavLinkStyled } from '../style/ProductsStyle.ts';
+import { useProductsQuantity } from '../hooks/useProductsQuantity.ts';
+import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonQuantity, ButtonBuy, NavLinkStyled } from '../style/ProductsStyle.ts';
 import { useParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductsProvider.tsx';
 
 
 export function Products() {
   const { products } = useProductContext()
-  const { handleClickAmount, handleMouseDownAmount, handleMouseUpAmount, handleClickBuy } = useProductsAmount()
+  const { handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuy } = useProductsQuantity()
 
   const { category, page } = useParams()
 
@@ -44,24 +44,24 @@ export function Products() {
             </ContainerInfo>
 
             <ContainerButton>
-              <ButtonAmounts
-                onClick={() => handleClickAmount(product.productId, -1, product.stock)}
-                onMouseDown={() => handleMouseDownAmount(product.productId, -1, product.stock)}
-                onMouseUp={handleMouseUpAmount}
+              <ButtonQuantity
+                onClick={() => handleClickQuantity(product.productId, -1, product.stock)}
+                onMouseDown={() => handleMouseDownQuantity(product.productId, -1, product.stock)}
+                onMouseUp={handleMouseUpQuantity}
               >
                 {'<'}
-              </ButtonAmounts>
+              </ButtonQuantity>
 
               <span>{product.quantity}</span>
 
-              <ButtonAmounts
-                onClick={() => handleClickAmount(product.productId, 1, product.stock)}
-                onMouseDown={() => handleMouseDownAmount(product.productId, 1, product.stock)}
-                onMouseUp={handleMouseUpAmount}
+              <ButtonQuantity
+                onClick={() => handleClickQuantity(product.productId, 1, product.stock)}
+                onMouseDown={() => handleMouseDownQuantity(product.productId, 1, product.stock)}
+                onMouseUp={handleMouseUpQuantity}
               >
                 {'>'}
-              </ButtonAmounts>
-              <ButtonBuy onClick={() => handleClickBuy(product.productId)}>Al carro</ButtonBuy>
+              </ButtonQuantity>
+              <ButtonBuy onClick={() => handleClickBuy(product)}>Al carro</ButtonBuy>
 
             </ContainerButton>
           </ProductsListli>
