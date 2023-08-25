@@ -57,11 +57,14 @@ export const useProductsQuantity = () => {
     if (!productAlreadyInCart) {
       updatedCart = [...productsCart, addedProduct]
     } else {
+
       updatedCart = productsCart.map(productCart => {
         if (productCart.productId === addedProduct.productId) {
+          const sumQuantity = productCart.quantity + addedProduct.quantity
+          const quantity = sumQuantity >= addedProduct.stock ? addedProduct.stock : sumQuantity
           return {
             ...productCart,
-            quantity: productCart.quantity + addedProduct.quantity,
+            quantity: quantity,
           }
         }
 

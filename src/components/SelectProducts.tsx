@@ -1,18 +1,18 @@
 import { LiFilters, NavLinkStyled, SectionFilters, UlFilters } from "../style/SelectProductsStyle";
-import { types, TypesKey } from "../constants/types";
+import { categories, CategoriesKey } from "../constants/categories";
 import { sections } from "../constants/section";
 
 
-function Types({ section }: { section: TypesKey }) {
-  const sectionTypes = types[section]
+function Categories({ section }: { section: CategoriesKey }) {
+  const sectionTypes = categories[section]
 
   return (
     <UlFilters>
       <h5>{section}</h5>
-      {sectionTypes.map((type) => (
-        <LiFilters key={type}>
-          <NavLinkStyled to={`products/${type.replace(/[\/\s]/g, '-')}`}>
-            {type}
+      {sectionTypes.map((categories) => (
+        <LiFilters key={categories}>
+          <NavLinkStyled to={`products/${categories.replace(/[\/\s]/g, '-')}`}>
+            {categories}
           </NavLinkStyled>
         </LiFilters>
       ))}
@@ -25,7 +25,7 @@ export function SelectProducts() {
   return (
     <SectionFilters>
       {sections.map((section) => (
-        <Types key={section} section={section as TypesKey} />
+        <Categories key={section} section={section as CategoriesKey} />
       ))}
     </SectionFilters>
   );

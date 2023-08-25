@@ -18,22 +18,23 @@ function App() {
 
   return (
     <>
-      <Header>
-        <h1>Dentzusu Shop</h1>
-        <DivCarrito>
-          <button onClick={handleClickIsVisible}>Ver Carrito</button>
-        </DivCarrito>
-      </Header>
+      <BrowserRouter>
+        <Header>
+          <h1>Dentzusu Shop</h1>
+          <DivCarrito>
+            <button onClick={handleClickIsVisible}>Ver Carrito</button>
+          </DivCarrito>
+        </Header>
 
-      <ShoppingCartProvider>
-        <ShoppingCart isVisible={isVisible} />
-        <ProductsProvider>
+        <ShoppingCartProvider>
+          <ShoppingCart isVisible={isVisible} />
+          <ProductsProvider>
 
-          <Filters />
+            <Filters />
 
-          <DivProducts>
-            <DivSection>
-              <BrowserRouter>
+            <DivProducts>
+              <DivSection>
+
                 <SelectProducts />
                 <Routes>
                   <Route path='/' element={<Products />} />
@@ -42,12 +43,12 @@ function App() {
                   <Route path='/products' element={<Products />} />
                 </Routes>
 
-              </BrowserRouter>
-            </DivSection>
-          </DivProducts>
-        </ProductsProvider>
+              </DivSection>
+            </DivProducts>
+          </ProductsProvider>
 
-      </ShoppingCartProvider>
+        </ShoppingCartProvider>
+      </BrowserRouter>
     </>
   )
 }

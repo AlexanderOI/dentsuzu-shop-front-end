@@ -1,12 +1,13 @@
-import type { Products } from '../types.d.ts'
 import { useProductsQuantity } from '../hooks/useProductsQuantity.ts';
 import { Main, ProductsListUl, ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonQuantity, ButtonBuy, NavLinkStyled } from '../style/ProductsStyle.ts';
 import { useParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductsProvider.tsx';
+import { useEffect } from 'react';
+import { sectionProducts } from '../json/products.ts';
 
 
 export function Products() {
-  const { products } = useProductContext()
+  const { products, setProducts } = useProductContext()
   const { handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuy } = useProductsQuantity()
 
   const { category, page } = useParams()
@@ -18,6 +19,12 @@ export function Products() {
 
   const lenProducts = products.length
   const renderProducts = products.slice(startIndex, endIndex)
+
+
+  useEffect(() => {
+    const categoryPage = category ? category : "Aderezos-Condimentos"
+    setProducts(sectionProducts.Almacén[categoryPage])
+  }, [category])
 
 
   return (
