@@ -6,18 +6,17 @@ import { sectionProducts } from "../json/products"
 import { useParams } from "react-router-dom"
 
 
-
-
 export function useProductsFilters(initialOrder: string) {
   const { products, setProducts } = useProductContext()
   const [selectValue, setSelectValue] = useState<string>(initialOrder)
-  const { category } = useParams()
+  const { section, category } = useParams()
 
   useEffect(() => {
     const orderProducts = (products: ProductsList[]): ProductsList[] => {
       if (selectValue === ORDER_BY.POSITION) {
         const categoryPage = category ? category : "Aderezos-Condimentos"
-        return sectionProducts["Almacén"][categoryPage]
+        const sectionPage = section ? section : "Almacén"
+        return sectionProducts[sectionPage][categoryPage]
       }
 
       return products.slice().sort((a, b) => {
@@ -28,8 +27,8 @@ export function useProductsFilters(initialOrder: string) {
         } else {
           return a.price - b.price
         }
-      });
-    };
+      })
+    }
 
     setProducts(orderProducts(products))
   }, [selectValue, setProducts])

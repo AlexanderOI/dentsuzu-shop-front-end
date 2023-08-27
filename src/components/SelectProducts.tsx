@@ -2,17 +2,16 @@ import { LiFilters, NavLinkStyled, SectionFilters, UlFilters } from "../style/Se
 import { categories, CategoriesKey } from "../constants/categories";
 import { sections } from "../constants/section";
 
-
 function Categories({ section }: { section: CategoriesKey }) {
-  const sectionTypes = categories[section]
+  const categoriesSection = categories[section]
 
   return (
     <UlFilters>
       <h5>{section}</h5>
-      {sectionTypes.map((categories) => (
-        <LiFilters key={categories}>
-          <NavLinkStyled to={`products/${categories.replace(/[\/\s]/g, '-')}`}>
-            {categories}
+      {categoriesSection.map((category) => (
+        <LiFilters key={category}>
+          <NavLinkStyled to={`products/${section}/${category.replace(/[\/\s]/g, '-')}`}>
+            {category}
           </NavLinkStyled>
         </LiFilters>
       ))}

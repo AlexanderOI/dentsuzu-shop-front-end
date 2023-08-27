@@ -20,26 +20,6 @@ export const DivCarrito = styled.div`
   right: 0;
 `
 
-export const DivFilters = styled.div`
-  display: flex;
-  position: sticky;
-  top: 100px;
-  width: 100%;
-  height: 50px;
-  background-color: #aaa;
-  align-items: center;
-  justify-content: center;
-  padding-left: 50px;
-  padding-right: 50px;
-`
-
-export const DivFiltersContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-`
-
 export const DivProducts = styled.div`
   display: grid;
   place-items: center;

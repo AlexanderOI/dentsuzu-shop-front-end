@@ -7,13 +7,30 @@ import { ShoppingCart } from './components/ShoppingCart'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
 import { SelectProducts } from './components/SelectProducts.tsx'
 import { ProductsProvider } from './context/ProductsProvider.tsx'
-import { Filters } from './components/Filters.tsx'
+import { OrderProducts } from './components/OrderProducts.tsx'
+import { FiltersCategory } from './components/FiltersCategory.tsx'
+
+type PathState = {
+  section: string;
+  category: string;
+  subCategory: string
+}
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
+  const [showCategoryFilterButton, setShowCategoryFilterButton] = useState(false)
+  const [path, setPath] = useState<PathState>({ section: "", category: "", subCategory: "" })
 
   const handleClickIsVisible = () => {
     setIsVisible(!isVisible)
+  }
+
+  const handleMouseEnter = () => {
+    setShowCategoryFilterButton(true)
+  }
+
+  const handleMouseLeave = () => {
+    setShowCategoryFilterButton(false)
   }
 
   return (
@@ -29,18 +46,22 @@ function App() {
         <ShoppingCartProvider>
           <ShoppingCart isVisible={isVisible} />
           <ProductsProvider>
-
-            <Filters />
+            <OrderProducts onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+            {showCategoryFilterButton &&
+              <FiltersCategory onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} path={path} />
+            }
 
             <DivProducts>
               <DivSection>
 
                 <SelectProducts />
                 <Routes>
-                  <Route path='/' element={<Products />} />
-                  <Route path='/products/:category/:page' element={<Products />} />
-                  <Route path='/products/:category' element={<Products />} />
-                  <Route path='/products' element={<Products />} />
+                  <Route path='/' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/:page' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/:subCategory' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/:subCategory/:page' element={<Products setPath={setPath} />} />
+                  <Route path='/products' element={<Products setPath={setPath} />} />
                 </Routes>
 
               </DivSection>

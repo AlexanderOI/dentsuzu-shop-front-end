@@ -1,30 +1,33 @@
 import { subCategories, SubCategoriesKey } from "../constants/subCategories";
+import { NavLinkStyled } from "../style/SelectProductsStyle";
 import { styled } from "styled-components";
-
-type TypesProps = {
-  category: SubCategoriesKey
-}
 
 const UlFilters = styled.ul`
 padding: 15px 0px 0px 25px;
+position: relative;
+font-size: 13px;
+right: 0;
 `
 const LiFilters = styled.li`
 list-style: none;
 `
-const A = styled.a`
-text-decoration: none;
-color: #fff;
-`
 
-export function SubCategories({ category }: TypesProps) {
+type PathState = {
+  section: string;
+  category: string;
+}
+
+export function SubCategories({ path }: { path: PathState }) {
+  const categoryPage = path.category ? path.category : "Aderezos-Condimentos"
+
+
   return (
     <UlFilters>
-      <h4>{category}</h4>
-      {subCategories[category].map((subCategory) => (
+      {subCategories[categoryPage as SubCategoriesKey].map((subCategory) => (
         <LiFilters key={subCategory}>
-          <A href="">
+          <NavLinkStyled to={`products/${path.section}/${path.category}/${subCategory.replace(/[\/\s]/g, '-')}`}>
             {subCategory}
-          </A>
+          </NavLinkStyled>
         </LiFilters>
       ))}
     </UlFilters>

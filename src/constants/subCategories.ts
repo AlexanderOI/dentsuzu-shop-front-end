@@ -1,5 +1,5 @@
 export const subCategories = {
-  "Aderezos/Condimentos": [
+  "Aderezos-Condimentos": [
     "Aceites",
     "Aderezos/Salsas",
     "Especias",
@@ -12,7 +12,7 @@ export const subCategories = {
     "Tomatados",
     "Vinagres/Otros"
   ],
-  "Alimentos Secos": [
+  "Alimentos-Secos": [
     "Arroz",
     "Azúcar/Endulzantes",
     "Chocolatadas/Batidos",
@@ -33,7 +33,7 @@ export const subCategories = {
     "Fideos/Fécula",
     "Galletitas/Postres"
   ],
-  "Dietéticos/BC": [
+  "Dietéticos-BC": [
     "Diet/Bajas Calorias"
   ],
   "Enlatados": [
@@ -48,7 +48,7 @@ export const subCategories = {
     "Chocolates",
     "Turrones"
   ],
-  "Café/Té/Yerba": [
+  "Café-Té-Yerba": [
     "Café",
     "Té",
     "Yerba"
@@ -62,7 +62,7 @@ export const subCategories = {
     "Papas Fritas",
     "Pepinos/Pickles"
   ],
-  "Aire Libre": [
+  "Aire-Libre": [
     "Camping",
     "Conservadora/Champañera",
     "Terere/Mate"
@@ -83,11 +83,11 @@ export const subCategories = {
     "Vajillas Descartables",
     "Varios"
   ],
-  "Decoración/Regalos": [
+  "Decoración-Regalos": [
     "Decoración Hogar",
     "Otros Decoración"
   ],
-  "Organizadores del Hogar": [
+  "Organizadores-del-Hogar": [
     "Lavado/Planchado",
     "Organizadores"
   ],
@@ -121,7 +121,7 @@ export const subCategories = {
   "Aperitivos": [
     "Con Alcohol"
   ],
-  "Bebidas Blancas": [
+  "Bebidas-Blancas": [
     "Aguardientes",
     "Cognac/Brandie",
     "Ron/Cachasa/Caña",
@@ -171,24 +171,24 @@ export const subCategories = {
     "Líquido",
     "Soja"
   ],
-  "Carne de Aves": [
+  "Carne-de-Aves": [
     "Pollos"
   ],
-  "Carne Porcina": [
+  "Carne-Porcina": [
     "a Granel/al Vacio"
   ],
-  "Carne Vacuna/Otros": [
+  "Carne-Vacuna-Otros": [
     "Carnes a Granel",
     "Carnes al Vacio",
     "Carnes En Bandeja",
     "Menudencia Vacuna"
   ],
-  "Comidas Preparadas": [
+  "Comidas-Preparadas": [
     "carne blanca/Roja",
     "Otras Comidas",
     "Pizzas/Salchichas"
   ],
-  "Frutas/Verduras": [
+  "Frutas-Verduras": [
     "Frutas",
     "Papas",
     "Verduras"
@@ -197,14 +197,14 @@ export const subCategories = {
     "de Aves",
     "Vacuna"
   ],
-  "Pescados/Mariscos": [
+  "Pescados-Mariscos": [
     "Mariscos",
     "Pescados"
   ],
   "Carnes": [
     "Vacuno/Aves"
   ],
-  "Línea Blanca": [
+  "Línea-Blanca": [
     "Placas/Cocinas",
     "Estufas/Calefactores",
     "Hornos",
@@ -263,7 +263,7 @@ export const subCategories = {
     "Rodados",
     "Unisex"
   ],
-  "Bebidas Lácteas": [
+  "Bebidas-Lácteas": [
     "Larga Vida",
     "Refrigeradas"
   ],
@@ -278,7 +278,7 @@ export const subCategories = {
   "Chocolatada": [
     "Larga Vida"
   ],
-  "Manteca/Margarina": [
+  "Manteca-Margarina": [
     "Manteca",
     "Margarina"
   ],
@@ -291,16 +291,16 @@ export const subCategories = {
     "Descremados",
     "Enteros"
   ],
-  "Archivos/Carpetas": [
+  "Archivos-Carpetas": [
     "Bibliorato/Separadores",
     "Carpetas/Portafolios",
     "Etiquetas/Rotulos"
   ],
-  "Básicos de Oficina": [
+  "Básicos-de-Oficina": [
     "Presill/Perfor/Sellos",
     "Varios"
   ],
-  "Elem. de Escritura": [
+  "Elem.-de-Escritura": [
     "Borradores",
     "Colores/Crayones",
     "Elementos de Pintura",
@@ -314,7 +314,7 @@ export const subCategories = {
     "Papelería/Sobres",
     "Pastas para Moldear"
   ],
-  "Otros Artículos": [
+  "Otros-Artículos": [
     "Adultos",
     "Comercial",
     "Mochilas/Bolsos",
@@ -337,7 +337,7 @@ export const subCategories = {
     "Planchado de Ropas",
     "Suavizantes"
   ],
-  "Carbón/Encend.": [
+  "Carbón-Encend.": [
     "Carbón/Briquetas/Leñas",
     "Velas/Fosforo",
     "Inflamables"
@@ -350,13 +350,13 @@ export const subCategories = {
     "Herramientas/Acces.",
     "Pilas y Baterias"
   ],
-  "Iluminacion/Electricidad": [
+  "Iluminacion-Electricidad": [
     "Acces.Iluminacion",
     "Focos",
     "Lamparas Varias",
     "Linternas/Otros"
   ],
-  "Jardinería/Piscina": [
+  "Jardinería-Piscina": [
     "Abono/Semillas",
     "Otros Artículos",
     "Plantas/Accesorios",
@@ -380,11 +380,11 @@ export const subCategories = {
     "Budines",
     "Masitas/Tortas/Facturas"
   ],
-  "Panificados a Granel": [
+  "Panificados-a-Granel": [
     "Panes Frescos/Chipa",
     "Coquito/Palito/Rosq."
   ],
-  "Panificados Envasados": [
+  "Panificados-Envasados": [
     "Galleta Molida",
     "Árabe/Tortillas/Chipas",
     "Pan de Molde",
@@ -398,11 +398,11 @@ export const subCategories = {
     "Tapas p/Pascualinas",
     "Tapas para Empanadas"
   ],
-  "Con y Sin Relleno": [
+  "Con-y-Sin-Relleno": [
     "Pastas Con Relleno",
     "Pastas Sin Relleno"
   ],
-  "Cuidado Capilar": [
+  "Cuidado-Capilar": [
     "Accesorios Cabello",
     "Acondicionadores",
     "Fijadores",
@@ -410,7 +410,7 @@ export const subCategories = {
     "Tintes",
     "Tratamientos"
   ],
-  "Cuidado de la Piel": [
+  "Cuidado-de-la-Piel": [
     "Bronceador/Protector",
     "Cremas/Aceites/Otros",
     "Cremas/Tónicos",
@@ -419,11 +419,11 @@ export const subCategories = {
     "Jabones",
     "Talcos"
   ],
-  "Cuidado Masculino": [
+  "Cuidado-Masculino": [
     "Afeitadoras/Repuestos",
     "Productos para Afeitar"
   ],
-  "Cuidado Personal": [
+  "Cuidado-Personal": [
     "Pañales para Adultos",
     "Pañuelos/Esponjas"
   ],
@@ -431,22 +431,22 @@ export const subCategories = {
     "Femeninos",
     "Masculinos"
   ],
-  "Higiene Bucal": [
+  "Higiene-Bucal": [
     "Cepillos",
     "Cremas",
     "Enjuagues Bucales",
     "Hilos/Sedas"
   ],
-  "Perfumes y Colonias": [
+  "Perfumes-y-Colonias": [
     "Colonias",
     "Perfumes"
   ],
-  "Protección Femenina": [
+  "Protección-Femenina": [
     "Protectores",
     "Tampones",
-    "Toallas Higiénicas"
+    "Toallas-Higiénicas"
   ],
-  "Rostro/Manos/Pies": [
+  "Rostro-Manos-Pies": [
     "Accesorios",
     "Manicura/Pedicuro",
     "Esmalte/Quitaesmalte",
@@ -454,4 +454,4 @@ export const subCategories = {
   ]
 }
 
-export type SubCategoriesKey = "Aderezos/Condimentos" | "Alimentos Secos" | "Celiacos" | "Dietéticos/BC" | "Enlatados" | "Golosinas" | "Café/Té/Yerba" | "Snacks" | "Aire Libre" | "Cocina" | "Cotillón" | "Decoración/Regalos" | "Organizadores del Hogar" | "Vajillas" | "Accesorios" | "Alimentos" | "Perfumería" | "Aperitivos" | "Bebidas Blancas" | "Cervezas" | "Espumantes" | "Licores" | "Vinos" | "Whiskies" | "Aguas" | "Especiales" | "Gaseosas" | "Jugos" | "Carne de Aves" | "Carne Porcina" | "Carne Vacuna/Otros" | "Comidas Preparadas" | "Frutas/Verduras" | "Hamburguesas" | "Pescados/Mariscos" | "Carnes" | "Línea Blanca" | "Otros" | "Botiquin" | "Embutidos" | "Fiambres" | "Otros" | "Queseria" | "Frutas" | "Verduras" | "Huevos" | "Juguetes" | "Otros" | "Bebidas Lácteas" | "Cremas" | "Leches" | "Chocolatada" | "Manteca/Margarina" | "Postres" | "Yogures" | "Archivos/Carpetas" | "Básicos de Oficina" | "Elem. de Escritura" | "Escolar" | "Otros Artículos" | "Accesorios" | "Hogar" | "Ropa" | "Carbón/Encend." | "Ferretería" | "Iluminacion/Electricidad" | "Jardinería/Piscina" | "Pintureria" | "Rodados" | "Veterinaria" | "Confiteria" | "Panificados a Granel" | "Panificados Envasados" | "Tapas" | "Con y Sin Relleno" | "Cuidado Capilar" | "Cuidado de la Piel" | "Cuidado Masculino" | "Cuidado Personal" | "Desodorantes" | "Higiene Bucal" | "Perfumes y Colonias" | "Protección Femenina" | "Rostro/Manos/Pies"
+export type SubCategoriesKey = "Aderezos-Condimentos" | "Alimentos-Secos" | "Celiacos" | "Dietéticos-BC" | "Enlatados" | "Golosinas" | "Café-Té-Yerba" | "Snacks" | "Aire-Libre" | "Cocina" | "Cotillón" | "Decoración-Regalos" | "Organizadores-del-Hogar" | "Vajillas" | "Accesorios" | "Alimentos" | "Perfumería" | "Aperitivos" | "Bebidas-Blancas" | "Cervezas" | "Espumantes" | "Licores" | "Vinos" | "Whiskies" | "Aguas" | "Especiales" | "Gaseosas" | "Jugos" | "Carne-de-Aves" | "Carne-Porcina" | "Carne-Vacuna-Otros" | "Comidas-Preparadas" | "Frutas-Verduras" | "Hamburguesas" | "Pescados-Mariscos" | "Carnes" | "Línea-Blanca" | "Otros" | "Botiquin" | "Embutidos" | "Fiambres" | "Otros" | "Queseria" | "Frutas" | "Verduras" | "Huevos" | "Juguetes" | "Otros" | "Bebidas-Lácteas" | "Cremas" | "Leches" | "Chocolatada" | "Manteca-Margarina" | "Postres" | "Yogures" | "Archivos-Carpetas" | "Básicos-de-Oficina" | "Elem.-de-Escritura" | "Escolar" | "Otros-Artículos" | "Accesorios" | "Hogar" | "Ropa" | "Carbón-Encend." | "Ferretería" | "Iluminacion-Electricidad" | "Jardinería-Piscina" | "Pintureria" | "Rodados" | "Veterinaria" | "Confiteria" | "Panificados-a-Granel" | "Panificados-Envasados" | "Tapas" | "Con-y-Sin-Relleno" | "Cuidado-Capilar" | "Cuidado-de-la-Piel" | "Cuidado-Masculino" | "Cuidado-Personal" | "Desodorantes" | "Higiene-Bucal" | "Perfumes-y-Colonias" | "Protección-Femenina" | "Rostro-Manos-Pies"

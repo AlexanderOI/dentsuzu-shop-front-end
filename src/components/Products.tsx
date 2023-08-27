@@ -5,12 +5,17 @@ import { useProductContext } from '../context/ProductsProvider.tsx';
 import { useEffect } from 'react';
 import { sectionProducts } from '../json/products.ts';
 
+type PathState = {
+  section: string;
+  category: string;
+  subCategory: string
+}
 
-export function Products() {
-  const { products, setProducts } = useProductContext()
+export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAction<PathState>> }) {
+  const { products, setProducts, productsRender, setProductsRender } = useProductContext()
   const { handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuy } = useProductsQuantity()
 
-  const { category, page } = useParams()
+  const { section, category, subCategory, page } = useParams()
 
   const productsPerPage = 28;
   const intPage = page ? parseInt(page) : 1
@@ -20,29 +25,39 @@ export function Products() {
   const lenProducts = products.length
   const renderProducts = products.slice(startIndex, endIndex)
 
+  useEffect(() => {
+    setProductsRender(renderProducts)
+  }, [page])
 
   useEffect(() => {
+    const sectionPage = section ? section : "Almacén"
     const categoryPage = category ? category : "Aderezos-Condimentos"
-    setProducts(sectionProducts.Almacén[categoryPage])
-  }, [category])
+    const subCategoryPage = subCategory ? subCategory : "Todos"
+
+    setPath({ section: sectionPage, category: categoryPage, subCategory: subCategoryPage })
+    setProducts(sectionProducts[sectionPage][categoryPage])
+  }, [category, subCategory])
 
 
   return (
     <Main>
       {Array.from(
         { length: Math.ceil(lenProducts / productsPerPage) },
-        (_, index) => (
-          <NavLinkStyled
-            key={index + 1}
-            to={`/products/${category ? category + '/' : ''}${index + 1}`}
-          >
-            {index + 1}
-          </NavLinkStyled>
-        )
+        (_, index) => {
+          const categoryPart = category ? `${category}/` : '';
+          const subCategoryPart = subCategory ? `${subCategory}/` : '';
+          const url = `/products/${section}/${categoryPart}${subCategoryPart}${index + 1}`;
+
+          return (
+            <NavLinkStyled key={index + 1} to={url}>
+              {index + 1}
+            </NavLinkStyled>
+          );
+        }
       )}
 
       <ProductsListUl>
-        {renderProducts.map((product) => (
+        {productsRender.map((product) => (
           <ProductsListli key={product.productId}>
             <ContainerInfo>
               <Img src={product.img} alt={product.alt} />
