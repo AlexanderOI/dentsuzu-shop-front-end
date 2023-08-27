@@ -123,4 +123,4 @@ export const categories = {
   ]
 }
 
-export type CategoriesKey = "Almacén" | "Bazar" | "Bebes" | "Bebidas con Alcohol" | "Bebidas sin Alcohol" | "Carnes" | "Congelados" | "Electrodomésticos" | "Farmacia" | "Fiambres y Quesos" | "Frutas/Verduras/Huevos" | "Juguetería" | "Lácteos" | "Librería" | "Limpieza" | "Mascotas y Hogar" | "Panaderia" | "Pastas Frescas" | "Perfumeria";
+export type CategoriesKey = "Almacén" | "Bazar" | "Bebes" | "Bebidas con Alcohol" | "Bebidas sin Alcohol" | "Carnes" | "Congelados" | "Electrodomésticos" | "Farmacia" | "Fiambres y Quesos" | "Frutas/Verduras/Huevos" | "Juguetería" | "Lácteos" | "Librería" | "Limpieza" | "Mascotas y Hogar" | "Panaderia" | "Pastas Frescas" | "Perfumeria"

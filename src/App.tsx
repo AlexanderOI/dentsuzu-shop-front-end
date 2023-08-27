@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Header, DivCarrito, DivProducts, DivSection } from './AppStyle.ts'
-import { Products } from './components/Products'
+import { Products } from './routes/Products.tsx'
 import { ShoppingCart } from './components/ShoppingCart'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
 import { SelectProducts } from './components/SelectProducts.tsx'
@@ -11,8 +11,8 @@ import { OrderProducts } from './components/OrderProducts.tsx'
 import { FiltersCategory } from './components/FiltersCategory.tsx'
 
 type PathState = {
-  section: string;
-  category: string;
+  section: string
+  category: string
   subCategory: string
 }
 
@@ -41,6 +41,7 @@ function App() {
           <DivCarrito>
             <button onClick={handleClickIsVisible}>Ver Carrito</button>
           </DivCarrito>
+
         </Header>
 
         <ShoppingCartProvider>
@@ -58,8 +59,8 @@ function App() {
                 <Routes>
                   <Route path='/' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category' element={<Products setPath={setPath} />} />
-                  <Route path='/products/:section/:category/:page' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category/:subCategory' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/:page' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category/:subCategory/:page' element={<Products setPath={setPath} />} />
                   <Route path='/products' element={<Products setPath={setPath} />} />
                 </Routes>

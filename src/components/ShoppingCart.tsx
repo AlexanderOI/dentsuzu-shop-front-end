@@ -1,6 +1,6 @@
-import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../style/ShoppingCartStyle';
-import { useShoppingCartContext } from '../context/ShoppingCartProvider';
-import { useProductsQuantityCart } from '../hooks/useShoppingCart';
+import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../style/ShoppingCartStyle'
+import { useShoppingCartContext } from '../context/ShoppingCartProvider'
+import { useProductsQuantityCart } from '../hooks/useShoppingCart'
 
 interface ShoppingCartProps {
   isVisible: boolean

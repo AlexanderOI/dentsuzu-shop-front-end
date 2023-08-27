@@ -1,6 +1,6 @@
-import { subCategories, SubCategoriesKey } from "../constants/subCategories";
-import { NavLinkStyled } from "../style/SelectProductsStyle";
-import { styled } from "styled-components";
+import { subCategories, SubCategoriesKey } from "../constants/subCategories"
+import { NavLinkStyled } from "../style/SelectProductsStyle"
+import { styled } from "styled-components"
 
 const UlFilters = styled.ul`
 padding: 15px 0px 0px 25px;
@@ -13,13 +13,12 @@ list-style: none;
 `
 
 type PathState = {
-  section: string;
-  category: string;
+  section: string
+  category: string
 }
 
 export function SubCategories({ path }: { path: PathState }) {
   const categoryPage = path.category ? path.category : "Aderezos-Condimentos"
-
 
   return (
     <UlFilters>

@@ -5,19 +5,19 @@ import { ProductsList } from "../types"
 
 export const useProductsQuantity = () => {
   const { productsCart, setProductsCart } = useShoppingCartContext()
-  const { products, setProducts } = useProductContext()
+  const { productsRender, setProductsRender } = useProductContext()
   const timerIdRef = useRef<number>(0)
 
   const handleClickQuantity = (productId: number, sum: number, stock: number) => {
-    setProducts((prevProducts) => {
+    setProductsRender((prevProducts) => {
       return prevProducts.map((product) => {
         if (product.productId !== productId) {
           return product
         }
 
-        const productCart = productsCart.find((cartItem) => cartItem.productId === productId);
+        const productCart = productsCart.find((cartItem) => cartItem.productId === productId)
         const newQuantityCart = productCart ? productCart.quantity : 0
-        const newQuantityComp = product.quantity + sum + newQuantityCart;
+        const newQuantityComp = product.quantity + sum + newQuantityCart
 
         if (newQuantityComp < 0 || newQuantityComp > stock) {
           return product
@@ -40,7 +40,7 @@ export const useProductsQuantity = () => {
   const addProducts = (addedProduct: ProductsList) => {
     if (addedProduct.quantity === 0) return
 
-    const updatedProducts = products.map(product => {
+    const updatedProducts = productsRender.map(product => {
       if (product.productId === addedProduct.productId) {
         return {
           ...product,
@@ -72,7 +72,7 @@ export const useProductsQuantity = () => {
       })
     }
 
-    setProducts(updatedProducts)
+    setProductsRender(updatedProducts)
     setProductsCart(updatedCart)
   }
 

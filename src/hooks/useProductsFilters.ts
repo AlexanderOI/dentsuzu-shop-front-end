@@ -2,21 +2,18 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { useProductContext } from "../context/ProductsProvider"
 import { ProductsList } from "../types"
 import { ORDER_BY } from "../constants/order"
-import { sectionProducts } from "../json/products"
-import { useParams } from "react-router-dom"
 
-
-export function useProductsFilters(initialOrder: string) {
-  const { products, setProducts } = useProductContext()
+export const useProductsFilters = (initialOrder: string) => {
+  const { productsRender, setProductsRender } = useProductContext()
   const [selectValue, setSelectValue] = useState<string>(initialOrder)
-  const { section, category } = useParams()
+
 
   useEffect(() => {
     const orderProducts = (products: ProductsList[]): ProductsList[] => {
       if (selectValue === ORDER_BY.POSITION) {
-        const categoryPage = category ? category : "Aderezos-Condimentos"
-        const sectionPage = section ? section : "Almacén"
-        return sectionProducts[sectionPage][categoryPage]
+        return products.slice().sort((a, b) => {
+          return a.productId - b.productId
+        })
       }
 
       return products.slice().sort((a, b) => {
@@ -30,8 +27,8 @@ export function useProductsFilters(initialOrder: string) {
       })
     }
 
-    setProducts(orderProducts(products))
-  }, [selectValue, setProducts])
+    setProductsRender(orderProducts(productsRender))
+  }, [selectValue, setProductsRender])
 
   const handleChangeSelectFilterPrice = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(event.target.value)
@@ -40,5 +37,5 @@ export function useProductsFilters(initialOrder: string) {
   return {
     selectValue,
     handleChangeSelectFilterPrice,
-  };
+  }
 }

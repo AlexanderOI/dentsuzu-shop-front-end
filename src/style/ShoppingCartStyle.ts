@@ -2,15 +2,12 @@ import { styled } from 'styled-components';
 
 export const ViewCart = styled.div`
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 150px;
+  right: 0;
   background-color: #fff;
   width: 370px;
   height: 500px;
   border: 2px solid #233;
-  overflow-y: auto;
-  overflow-x: hidden;
 `
 
 export const H3 = styled.h3`

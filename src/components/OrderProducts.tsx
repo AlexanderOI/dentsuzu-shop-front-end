@@ -1,6 +1,6 @@
-import { useProductsFilters } from "../hooks/useProductsFilters";
-import { ORDER_OPTIONS } from "../constants/order";
-import { DivFilters, DivFiltersContainer, DivFilterSelect, DivShowCategoryFilter } from "../style/OrderStyled";
+import { useProductsFilters } from "../hooks/useProductsFilters"
+import { ORDER_OPTIONS } from "../constants/order"
+import { DivFilters, DivFiltersContainer, DivFilterSelect, DivShowCategoryFilter } from "../style/OrderStyled"
 
 type OrderProductsProps = {
   onMouseEnter: React.MouseEventHandler<HTMLDivElement>
