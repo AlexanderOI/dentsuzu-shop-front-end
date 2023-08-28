@@ -1,4 +1,4 @@
-import { LiFilters, NavLinkStyled, SectionFilters, UlFilters } from "../style/SelectProductsStyle"
+import { LiFilters, NavLinkStyled, SectionFilters, UlFilters } from "../assets/style/SelectProductsStyle"
 import { categories, CategoriesKey } from "../constants/categories"
 import { sections } from "../constants/section"
 

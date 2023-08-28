@@ -1,4 +1,4 @@
-import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../style/ShoppingCartStyle'
+import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../assets/style/ShoppingCartStyle'
 import { useShoppingCartContext } from '../context/ShoppingCartProvider'
 import { useProductsQuantityCart } from '../hooks/useShoppingCart'
 
@@ -20,7 +20,7 @@ export function ShoppingCart({ isVisible }: ShoppingCartProps) {
         <H3>Lista de compra</H3>
         <ul>
           {productsCart.slice(0, 10).map((product) => (
-            <Li key={product.productId + 20000}>
+            <Li key={product.productId}>
               <Img src={product.img} alt={product.alt} />
 
               <DivInfo>

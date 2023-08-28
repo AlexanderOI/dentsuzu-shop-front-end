@@ -1,5 +1,5 @@
 import { useProductsQuantity } from '../hooks/useProductsQuantity.ts'
-import { Main, ProductsListUl } from '../style/ProductsStyle.ts'
+import { Main, ProductsListUl } from '../assets/style/ProductsStyle.ts'
 import { useParams } from 'react-router-dom'
 import { useProductContext } from '../context/ProductsProvider.tsx'
 import { useEffect } from 'react'
@@ -17,7 +17,7 @@ export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAc
   const { products, setProducts, productsRender, setProductsRender } = useProductContext()
   const { handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuy } = useProductsQuantity()
 
-  const { section, category, subCategory, page } = useParams()
+  const { section, category, subCategory, page, query } = useParams()
   const productsPerPage = 28
   const pageCurrent = page ? parseInt(page) : 1
   const lenProducts = products.length
@@ -29,28 +29,44 @@ export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAc
       })
       return newProductsFilter
     }
+    if (query) {
+      console.log(products)
+      return products
+    }
+
     return sectionProducts[sectionPart][categoryPart]
   }
 
   useEffect(() => {
-    const sectionPart = section ? section : "Almacén"
-    const categoryPart = category ? category : "Aderezos-Condimentos"
-    const subCategoryPart = subCategory ? subCategory : "Todos"
+    const sectionPart = section ? section : "Almacén";
+    const categoryPart = category ? category : "Aderezos-Condimentos";
+    const subCategoryPart = subCategory ? subCategory : "Todos";
 
-    setPath({ section: sectionPart, category: categoryPart, subCategory: subCategoryPart })
-    setProducts(filterPerCategory(sectionPart, categoryPart, subCategoryPart))
+    setPath({ section: sectionPart, category: categoryPart, subCategory: subCategoryPart });
 
-    const startIndex = (pageCurrent - 1) * productsPerPage
-    const endIndex = startIndex + productsPerPage
-    const newRenderProducts = products.slice(startIndex, endIndex)
+    // Only update products if there is a change in category, subCategory, or page
+    if (category !== categoryPart || subCategory !== subCategoryPart) {
+      setProducts(filterPerCategory(sectionPart, categoryPart, subCategoryPart));
+    }
 
-    setProductsRender(newRenderProducts)
-  }, [category, subCategory, page, section, setPath, setProducts, products, pageCurrent, productsPerPage])
+    const startIndex = (pageCurrent - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const newRenderProducts = products.slice(startIndex, endIndex);
+
+    setProductsRender(newRenderProducts);
+  }, [category, subCategory, page, section, setPath, products, pageCurrent, productsPerPage]);
+
 
   const generateProductsUrl = (pageNumber: number): string => {
+    if (query) {
+      const queryPart = query ? `${query}/` : ''
+      return `/search/${queryPart}${pageNumber}`
+    }
+    console.log(subCategory)
     const categoryPart = category ? `${category}/` : ''
     const subCategoryPart = subCategory ? `${subCategory}/` : ''
-    return `/products/${section}/${categoryPart}${subCategoryPart}${pageNumber}`
+
+    return `/products/${section}/${categoryPart}${subCategoryPart}page/${pageNumber}`
   }
 
 

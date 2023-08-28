@@ -41,11 +41,11 @@ function App() {
           <DivCarrito>
             <button onClick={handleClickIsVisible}>Ver Carrito</button>
           </DivCarrito>
-
         </Header>
 
         <ShoppingCartProvider>
           <ShoppingCart isVisible={isVisible} />
+
           <ProductsProvider>
             <OrderProducts onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
             {showCategoryFilterButton &&
@@ -60,15 +60,15 @@ function App() {
                   <Route path='/' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category/:subCategory' element={<Products setPath={setPath} />} />
-                  <Route path='/products/:section/:category/:page' element={<Products setPath={setPath} />} />
-                  <Route path='/products/:section/:category/:subCategory/:page' element={<Products setPath={setPath} />} />
-                  <Route path='/products' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/page/:page' element={<Products setPath={setPath} />} />
+                  <Route path='/products/:section/:category/:subCategory/page/:page' element={<Products setPath={setPath} />} />
+                  <Route path='/search/:query' element={<Products setPath={setPath} />} />
+                  <Route path='/search/:query/:page' element={<Products setPath={setPath} />} />
                 </Routes>
 
               </DivSection>
             </DivProducts>
           </ProductsProvider>
-
         </ShoppingCartProvider>
       </BrowserRouter>
     </>
