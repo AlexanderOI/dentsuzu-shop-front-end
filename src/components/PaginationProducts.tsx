@@ -1,4 +1,4 @@
-import { NavLinkStyled } from "../assets/style/ProductsStyle"
+import { Nav, NavLinkStyled } from "../assets/style/ProductsStyle"
 
 type PaginationProductsProps = {
   totalPages: number
@@ -7,7 +7,7 @@ type PaginationProductsProps = {
 
 export function PaginationProducts({ totalPages, generateUrl }: PaginationProductsProps) {
   return (
-    <>
+    <Nav>
       {Array.from(
         { length: totalPages },
         (_, index) => {
@@ -19,7 +19,7 @@ export function PaginationProducts({ totalPages, generateUrl }: PaginationProduc
           )
         }
       )}
-    </>
+    </Nav>
 
   )
 }

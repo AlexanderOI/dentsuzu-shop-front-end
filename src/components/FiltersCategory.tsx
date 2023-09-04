@@ -3,9 +3,11 @@ import { SubCategories } from "./SubCategories"
 
 const DivCategory = styled.div`
   display: flex;
-  position: fixed;
+  position: absolute;
   background-color: #2093ff;
-  right: 50px;
+  right: 0;
+  top: 50px;
+  z-index: 20;
   width: 170px;
   height: 400px;
   border: 1px solid #000;

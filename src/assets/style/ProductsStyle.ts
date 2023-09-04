@@ -8,18 +8,22 @@ export const Main = styled.main`
   padding: 10px;
 `
 
+export const Nav = styled.nav`
+  display: inline-block;
+  width: 100%;
+`
+
 export const NavLinkStyled = styled(NavLink)`
   display: inline-block;
   background: #707bd6;
   text-decoration: none;
   text-align: center;
-  align-content: center;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   color: #fff;
-  margin: 3px;
-  border: 1px solid #707bd6;
+  margin: 0px 6px 10px 0px;
+  padding-top: 4px;
+  border-radius: 5px;
 `
 
 export const ProductsListUl = styled.ul`
@@ -59,7 +63,7 @@ export const SpanStock = styled.span`
 `
 
 export const Img = styled.img`
-  background-color: #3d3d3d;
+  background-color: #fff;
   width: 100%;
   height: 150px;
 `

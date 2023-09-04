@@ -1,4 +1,4 @@
-import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button } from '../assets/style/ShoppingCartStyle'
+import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button, DivTotalPrice, UlShoppingCart } from '../assets/style/ShoppingCartStyle'
 import { useShoppingCartContext } from '../context/ShoppingCartProvider'
 import { useProductsQuantityCart } from '../hooks/useShoppingCart'
 
@@ -14,14 +14,16 @@ export function ShoppingCart({ isVisible }: ShoppingCartProps) {
     return accumulatorPrice + currenProduct.price * currenProduct.quantity
   }, 0)
 
+  const totalPriceString: string = totalPrice.toLocaleString('es-ES')
+
   return (
     <>
       <ViewCart style={{ display: isVisible ? 'block' : 'none' }}>
         <H3>Lista de compra</H3>
-        <ul>
+        <UlShoppingCart>
           {productsCart.slice(0, 10).map((product) => (
             <Li key={product.productId}>
-              <Img src={product.img} alt={product.alt} />
+              <Img src={`http://localhost:3001/ProductoId - ${product.productId}.jpg`} alt={product.alt} />
 
               <DivInfo>
                 <SpanName>{product.product}</SpanName>
@@ -48,10 +50,10 @@ export function ShoppingCart({ isVisible }: ShoppingCartProps) {
               </DivButton>
             </Li>
           ))}
-        </ul>
-        <div>
-          <span>Total: {totalPrice}</span>
-        </div>
+        </UlShoppingCart>
+        <DivTotalPrice>
+          <span>Precio total: Gs. {totalPriceString}</span>
+        </DivTotalPrice>
       </ViewCart>
     </>
   )

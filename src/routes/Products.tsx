@@ -69,7 +69,6 @@ export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAc
     return `/products/${section}/${categoryPart}${subCategoryPart}page/${pageNumber}`
   }
 
-
   return (
     <Main>
       <PaginationProducts totalPages={Math.ceil(lenProducts / productsPerPage)} generateUrl={generateProductsUrl} />

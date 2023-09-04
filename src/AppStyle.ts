@@ -19,11 +19,30 @@ export const Header = styled.header`
   top: 0;
 `
 
+export const DivHeader = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 1280px;
+`
+
 export const DivCarrito = styled.div`
   position: absolute;
   cursor: pointer;
+  width: 100px;
+  right: 0;
   padding: 20px;
-  right: 200px;
+
+  button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border: none;
+    border-radius: 50px;
+  }
+
 `
 
 export const DivProducts = styled.div`

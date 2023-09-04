@@ -3,22 +3,32 @@ import { styled } from 'styled-components';
 export const ViewCart = styled.div`
   position: fixed;
   top: 150px;
-  right: 0;
   background-color: #fff;
   width: 370px;
   height: 500px;
-  border: 2px solid #233;
+  border: 1px solid #000;
+  left: 50%;
+  transform: translate(-50%);
 `
 
 export const H3 = styled.h3`
   display: flex;
   justify-content: center;
-  padding: 5px;
+  align-items: center;
+  height: 30px;
+  border-bottom: 1px solid #000;
+`
+
+export const UlShoppingCart = styled.div`
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+  overflow-y: auto;
 `
 
 export const Li = styled.li`
-display: flex;
-padding: 5px;
+  display: flex;
+  padding: 5px;
 `
 
 export const Img = styled.img`
@@ -53,4 +63,12 @@ export const Button = styled.button`
   height: 20px;
   align-items: center;
   justify-content: center;
+`
+
+export const DivTotalPrice = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border-top: 1px solid #000;
 `

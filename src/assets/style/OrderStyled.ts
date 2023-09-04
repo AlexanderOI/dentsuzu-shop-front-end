@@ -8,21 +8,41 @@ export const DivFilters = styled.div`
   background-color: #aaa;
   align-items: center;
   justify-content: center;
-  padding-left: 50px;
-  padding-right: 50px;
 `
 
 export const DivFiltersContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
+
+  form {
+    width: 20%;
+  }
 
   input {
-    width: 170px;
+    max-width: 300px;
+    width: 100%;
     height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+
+  input {
+    max-width: 300px;
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+
+  input:focus {
+    outline-color: #00508b;
   }
 `
 
@@ -36,6 +56,7 @@ export const DivFilterSelect = styled.div`
   select {
     width: 150px;
     height: 30px;
+    border: none;
   }
 `
 

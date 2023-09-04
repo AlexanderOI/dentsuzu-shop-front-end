@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Header, DivCarrito, DivProducts, DivSection } from './AppStyle.ts'
+import { Header, DivCarrito, DivProducts, DivSection, DivHeader } from './AppStyle.ts'
 import { Products } from './routes/Products.tsx'
 import { ShoppingCart } from './components/ShoppingCart'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
 import { SelectProducts } from './components/SelectProducts.tsx'
 import { ProductsProvider } from './context/ProductsProvider.tsx'
 import { OrderProducts } from './components/OrderProducts.tsx'
-import { FiltersCategory } from './components/FiltersCategory.tsx'
+import { Footer } from './components/Footer.tsx'
+import { ShoppingCartIcon } from './assets/icons/IconsApp.tsx'
 
 type PathState = {
   section: string
@@ -18,39 +19,30 @@ type PathState = {
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
-  const [showCategoryFilterButton, setShowCategoryFilterButton] = useState(false)
+
   const [path, setPath] = useState<PathState>({ section: "", category: "", subCategory: "" })
 
   const handleClickIsVisible = () => {
     setIsVisible(!isVisible)
   }
 
-  const handleMouseEnter = () => {
-    setShowCategoryFilterButton(true)
-  }
-
-  const handleMouseLeave = () => {
-    setShowCategoryFilterButton(false)
-  }
 
   return (
     <>
       <BrowserRouter>
         <Header>
-          <h1>Dentzusu Shop</h1>
-          <DivCarrito>
-            <button onClick={handleClickIsVisible}>Ver Carrito</button>
-          </DivCarrito>
+          <DivHeader>
+            <h1>Dentzusu Shop</h1>
+            <DivCarrito>
+              <button onClick={handleClickIsVisible}><ShoppingCartIcon /></button>
+            </DivCarrito>
+          </DivHeader>
         </Header>
 
         <ShoppingCartProvider>
           <ShoppingCart isVisible={isVisible} />
-
           <ProductsProvider>
-            <OrderProducts onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
-            {showCategoryFilterButton &&
-              <FiltersCategory onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} path={path} />
-            }
+            <OrderProducts path={path} />
 
             <DivProducts>
               <DivSection>
@@ -70,6 +62,8 @@ function App() {
             </DivProducts>
           </ProductsProvider>
         </ShoppingCartProvider>
+
+        <Footer />
       </BrowserRouter>
     </>
   )

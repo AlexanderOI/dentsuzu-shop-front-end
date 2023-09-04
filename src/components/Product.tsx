@@ -10,10 +10,11 @@ type ProductProps = {
 }
 
 export function Product({ product, handleClickQuantity, handleMouseDownQuantity, handleMouseUpQuantity, handleClickBuy }: ProductProps) {
+  const dirImage = `http://localhost:3001/ProductoId - ${product.productId}.jpg`
   return (
     <ProductsListli key={product.productId}>
       <ContainerInfo>
-        <Img src={product.img} alt={product.alt} />
+        <Img src={dirImage} alt={product.alt} />
         <ProductPrice>Gs. {product.price}</ProductPrice>
         <ProductTitle>{product.product}</ProductTitle>
       </ContainerInfo>

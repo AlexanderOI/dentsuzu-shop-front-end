@@ -6,13 +6,19 @@ import { useProductContext } from "../context/ProductsProvider"
 import { sectionProducts } from "../json/products"
 import { ProductsList } from "../types"
 import { useNavigate } from "react-router-dom"
+import { FiltersCategory } from "./FiltersCategory"
 
 type OrderProductsProps = {
-  onMouseEnter: React.MouseEventHandler<HTMLDivElement>
-  onMouseLeave: React.MouseEventHandler<HTMLDivElement>
+  path: PathState
 }
 
-export function OrderProducts({ onMouseEnter, onMouseLeave }: OrderProductsProps) {
+type PathState = {
+  section: string
+  category: string
+  subCategory: string
+}
+
+export function OrderProducts({ path }: OrderProductsProps) {
   const { setProducts } = useProductContext()
   const { selectValue, handleChangeSelectFilterPrice } = useProductsFilters('position')
   const [searchValue, setSearchValue] = useState<string>("")
@@ -43,8 +49,18 @@ export function OrderProducts({ onMouseEnter, onMouseLeave }: OrderProductsProps
     history(`/search/${searchValue.replace(/[\/\s]/g, '-')}`)
   }
 
+  const [showCategoryFilterButton, setShowCategoryFilterButton] = useState(false)
+  const handleMouseEnter = () => {
+    setShowCategoryFilterButton(true)
+  }
+
+  const handleMouseLeave = () => {
+    setShowCategoryFilterButton(false)
+  }
+
   return (
     <DivFilters>
+
       <DivFiltersContainer>
         <form onSubmit={handleSubmitSearch}>
           <input
@@ -66,10 +82,13 @@ export function OrderProducts({ onMouseEnter, onMouseLeave }: OrderProductsProps
             }
           </select>
 
-          <DivShowCategoryFilter onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          <DivShowCategoryFilter onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <span>Filtrar por Categorias</span>
           </DivShowCategoryFilter>
         </DivFilterSelect>
+        {showCategoryFilterButton &&
+          <FiltersCategory onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} path={path} />
+        }
       </DivFiltersContainer>
     </DivFilters>
   )
