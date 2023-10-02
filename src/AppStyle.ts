@@ -42,7 +42,6 @@ export const DivCarrito = styled.div`
     border: none;
     border-radius: 50px;
   }
-
 `
 
 export const DivProducts = styled.div`

@@ -78,7 +78,7 @@ export function Footer() {
         <Div >
           <h3>DentsuzuOI</h3>
           Tienda falsa hecha por: AlexaderOI
-          <a href="https://www.linkedin.com/in/alexander-o-18a7a1248"><i><LinkedinIcon /></i>Limkedin</a>
+          <a href="https://www.linkedin.com/in/alexander-o-18a7a1248"><i><LinkedinIcon /></i>Linkedin</a>
           <a href="https://github.com/AlexanderOI"><i><GitHubIcon /></i>GitHub</a>
 
           <a href="https://github.com/AlexanderOI/dentsuzu-shop-front-end"><i><RepositoryIcon /></i>Proyecto</a>

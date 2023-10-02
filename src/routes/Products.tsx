@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 import { useProductContext } from '../context/ProductsProvider.tsx'
 import { useEffect } from 'react'
 import { sectionProducts } from '../json/products.ts'
-import { Product } from '../components/Product.tsx'
-import { PaginationProducts } from '../components/PaginationProducts.tsx'
+import { Product } from '../components/products/Product.tsx'
+import { PaginationProducts } from '../components/products/PaginationProducts.tsx'
 
 type PathState = {
   section: string
@@ -44,7 +44,7 @@ export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAc
 
     setPath({ section: sectionPart, category: categoryPart, subCategory: subCategoryPart });
 
-    // Only update products if there is a change in category, subCategory, or page
+
     if (category !== categoryPart || subCategory !== subCategoryPart) {
       setProducts(filterPerCategory(sectionPart, categoryPart, subCategoryPart));
     }

@@ -1,6 +1,6 @@
-import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button, DivTotalPrice, UlShoppingCart } from '../assets/style/ShoppingCartStyle'
-import { useShoppingCartContext } from '../context/ShoppingCartProvider'
-import { useProductsQuantityCart } from '../hooks/useShoppingCart'
+import { ViewCart, H3, Li, Img, DivInfo, SpanName, SpanPrice, DivButton, Button, DivTotalPrice, UlShoppingCart } from '../../assets/style/ShoppingCartStyle'
+import { useShoppingCartContext } from '../../context/ShoppingCartProvider'
+import { useProductsQuantityCart } from '../../hooks/useShoppingCart'
 
 interface ShoppingCartProps {
   isVisible: boolean
@@ -53,6 +53,7 @@ export function ShoppingCart({ isVisible }: ShoppingCartProps) {
         </UlShoppingCart>
         <DivTotalPrice>
           <span>Precio total: Gs. {totalPriceString}</span>
+          <button>Comprar</button>
         </DivTotalPrice>
       </ViewCart>
     </>

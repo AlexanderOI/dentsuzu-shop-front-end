@@ -2,11 +2,13 @@ import { styled } from 'styled-components';
 
 export const ViewCart = styled.div`
   position: fixed;
-  top: 150px;
+  top: 155px;
   background-color: #fff;
   width: 370px;
   height: 500px;
-  border: 1px solid #000;
+  border: none;
+  box-shadow: 5px 5px 10px #888888;
+  border-radius: 20px;
   left: 50%;
   transform: translate(-50%);
 `
@@ -15,13 +17,17 @@ export const H3 = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #00508b;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
   height: 30px;
   border-bottom: 1px solid #000;
 `
 
 export const UlShoppingCart = styled.div`
   width: 100%;
-  height: 440px;
+  height: 410px;
   overflow: hidden;
   overflow-y: auto;
 `
@@ -69,6 +75,24 @@ export const DivTotalPrice = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  flex-direction: column;
+  height: 50px;
   border-top: 1px solid #000;
+
+  span {
+    padding: 5px;
+  }
+  button {
+    width: 100px;
+    height: 25px;
+    border: none;
+    background-color: #00508b;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #00308b;
+    }
+  }
 `

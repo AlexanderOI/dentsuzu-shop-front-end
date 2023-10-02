@@ -1,6 +1,6 @@
-import { LiFilters, NavLinkStyled, SectionFilters, UlFilters, H5Section } from "../assets/style/SelectProductsStyle"
-import { categories, CategoriesKey } from "../constants/categories"
-import { sections } from "../constants/section"
+import { LiFilters, NavLinkStyled, SectionFilters, UlFilters, H5Section } from "../../assets/style/SelectProductsStyle"
+import { categories, CategoriesKey } from "../../constants/categories"
+import { sections } from "../../constants/section"
 
 function Categories({ section }: { section: CategoriesKey }) {
   const categoriesSection = categories[section]

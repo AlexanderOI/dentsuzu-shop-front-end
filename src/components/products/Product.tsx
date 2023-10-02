@@ -1,5 +1,5 @@
-import { ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonQuantity, ButtonBuy } from '../assets/style/ProductsStyle.ts'
-import { ProductsList } from '../types'
+import { ProductsListli, Img, ProductTitle, ProductPrice, ContainerInfo, ContainerButton, ButtonQuantity, ButtonBuy } from '../../assets/style/ProductsStyle.ts'
+import { ProductsList } from '../../types'
 
 type ProductProps = {
   product: ProductsList

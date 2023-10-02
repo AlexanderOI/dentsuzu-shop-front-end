@@ -1,5 +1,5 @@
-import { subCategories, SubCategoriesKey } from "../constants/subCategories"
-import { NavLinkStyled } from "../assets/style/SelectProductsStyle"
+import { subCategories, SubCategoriesKey } from "../../constants/subCategories"
+import { NavLinkStyled } from "../../assets/style/SelectProductsStyle"
 import { styled } from "styled-components"
 
 const UlFilters = styled.ul`

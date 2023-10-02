@@ -1,4 +1,4 @@
-import { Nav, NavLinkStyled } from "../assets/style/ProductsStyle"
+import { Nav, NavLinkStyled } from "../../assets/style/ProductsStyle"
 
 type PaginationProductsProps = {
   totalPages: number
