@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { GitHubIcon, LinkedinIcon, RepositoryIcon } from "../assets/icons/IconsFooter"
+import { GitHubIcon, LinkedinIcon, RepositoryIcon } from "../assets/icons/Icons"
 
 export const FooterInfo = styled.footer`
   display: flex;

@@ -1,6 +1,12 @@
-import { subCategories, SubCategoriesKey } from "../../constants/subCategories"
-import { NavLinkStyled } from "../../assets/style/SelectProductsStyle"
+import { NavLink } from "react-router-dom"
 import { styled } from "styled-components"
+import { subCategories, SubCategoriesKey } from "../../constants/subCategories"
+
+export const NavLinkStyled = styled(NavLink)`
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+`
 
 const UlFilters = styled.ul`
 padding: 15px 0px 0px 25px;

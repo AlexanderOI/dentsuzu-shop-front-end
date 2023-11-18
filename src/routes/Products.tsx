@@ -1,11 +1,25 @@
 import { useProductsQuantity } from '../hooks/useProductsQuantity.ts'
-import { Main, ProductsListUl } from '../assets/style/ProductsStyle.ts'
 import { useParams } from 'react-router-dom'
 import { useProductContext } from '../context/ProductsProvider.tsx'
 import { useEffect } from 'react'
 import { sectionProducts } from '../json/products.ts'
 import { Product } from '../components/products/Product.tsx'
 import { PaginationProducts } from '../components/products/PaginationProducts.tsx'
+import { styled } from 'styled-components'
+
+export const Main = styled.main`
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+`
+
+export const ProductsListUl = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+`
 
 type PathState = {
   section: string
@@ -38,23 +52,23 @@ export function Products({ setPath }: { setPath: React.Dispatch<React.SetStateAc
   }
 
   useEffect(() => {
-    const sectionPart = section ? section : "Almacén";
-    const categoryPart = category ? category : "Aderezos-Condimentos";
-    const subCategoryPart = subCategory ? subCategory : "Todos";
+    const sectionPart = section ? section : "Almacén"
+    const categoryPart = category ? category : "Aderezos-Condimentos"
+    const subCategoryPart = subCategory ? subCategory : "Todos"
 
-    setPath({ section: sectionPart, category: categoryPart, subCategory: subCategoryPart });
+    setPath({ section: sectionPart, category: categoryPart, subCategory: subCategoryPart })
 
 
     if (category !== categoryPart || subCategory !== subCategoryPart) {
-      setProducts(filterPerCategory(sectionPart, categoryPart, subCategoryPart));
+      setProducts(filterPerCategory(sectionPart, categoryPart, subCategoryPart))
     }
 
-    const startIndex = (pageCurrent - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    const newRenderProducts = products.slice(startIndex, endIndex);
+    const startIndex = (pageCurrent - 1) * productsPerPage
+    const endIndex = startIndex + productsPerPage
+    const newRenderProducts = products.slice(startIndex, endIndex)
 
-    setProductsRender(newRenderProducts);
-  }, [category, subCategory, page, section, setPath, products, pageCurrent, productsPerPage]);
+    setProductsRender(newRenderProducts)
+  }, [category, subCategory, page, section, setPath, products, pageCurrent, productsPerPage])
 
 
   const generateProductsUrl = (pageNumber: number): string => {

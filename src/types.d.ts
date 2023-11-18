@@ -3,20 +3,20 @@ export interface JsonProducts {
 }
 
 export interface ProductsList {
-  productId: number;
-  category: string;
-  product: string;
-  alt: string;
-  price: number;
-  stock: number;
-  quantity: number;
-  img: string;
+  productId: number
+  category: string
+  product: string
+  alt: string
+  price: number
+  stock: number
+  quantity: number
+  img: string
 }
 
 interface CategoryData {
-  [category: string]: ProductsList[];
+  [category: string]: ProductsList[]
 }
 
 interface SectionProducts {
-  [section: string]: CategoryData;
+  [section: string]: CategoryData
 }

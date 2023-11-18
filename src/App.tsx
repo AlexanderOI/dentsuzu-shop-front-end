@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Header, DivCarrito, DivProducts, DivSection, DivHeader } from './AppStyle.ts'
 import { Products } from './routes/Products.tsx'
 import { ShoppingCart } from './components/products/ShoppingCart'
 import { ShoppingCartProvider } from './context/ShoppingCartProvider.tsx'
@@ -9,8 +8,62 @@ import { SelectProducts } from './components/products/SelectProducts.tsx'
 import { ProductsProvider } from './context/ProductsProvider.tsx'
 import { OrderProducts } from './components/products/OrderProducts.tsx'
 import { Footer } from './components/Footer.tsx'
-import { ShoppingCartIcon } from './assets/icons/IconsApp.tsx'
-import { Login } from './routes/Login.tsx'
+import { ShoppingCartIcon } from './assets/icons/Icons.tsx'
+
+import { styled } from 'styled-components'
+
+export const Header = styled.header`
+  display: flex;
+  position: sticky;
+  background-color: #00508b;
+  color: #fff;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  top: 0;
+`
+
+export const DivHeader = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 1280px;
+`
+
+export const DivCarrito = styled.div`
+  position: absolute;
+  cursor: pointer;
+  width: 100px;
+  right: 0;
+  padding: 20px;
+
+  button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border: none;
+    border-radius: 50px;
+  }
+`
+
+export const DivProducts = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+`
+
+export const DivSection = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+  justify-content: center;
+`
 
 type PathState = {
   section: string
@@ -20,16 +73,11 @@ type PathState = {
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isPageProducts, setIsPageProducts] = useState(true)
 
   const [path, setPath] = useState<PathState>({ section: "", category: "", subCategory: "" })
 
   const handleClickIsVisible = () => {
     setIsVisible(!isVisible)
-  }
-
-  const handleClickIsPageProducts = () => {
-    setIsPageProducts(!isPageProducts)
   }
 
   return (
@@ -46,14 +94,14 @@ function App() {
         </Header>
 
         <ShoppingCartProvider>
-          {isPageProducts && <ShoppingCart isVisible={isVisible} />}
+          <ShoppingCart isVisible={isVisible} />
           <ProductsProvider>
-            {isPageProducts && <OrderProducts path={path} />}
+            <OrderProducts path={path} />
 
             <DivProducts>
               <DivSection>
 
-                {isPageProducts && <SelectProducts />}
+                <SelectProducts />
                 <Routes>
                   <Route path='/' element={<Products setPath={setPath} />} />
                   <Route path='/products/:section/:category' element={<Products setPath={setPath} />} />
@@ -62,7 +110,6 @@ function App() {
                   <Route path='/products/:section/:category/:subCategory/page/:page' element={<Products setPath={setPath} />} />
                   <Route path='/search/:query' element={<Products setPath={setPath} />} />
                   <Route path='/search/:query/:page' element={<Products setPath={setPath} />} />
-                  <Route path='/login' element={<Login />} />
                 </Routes>
 
               </DivSection>
